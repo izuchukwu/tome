@@ -4,10 +4,10 @@ import {FileIcon} from '@radix-ui/react-icons'
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import {useState} from 'react'
-import {EmojiFavi} from '../components/EmojiFavi'
-import {TreeRow} from '../components/TreeRow'
+import {EmojiFavi} from '../src/components/EmojiFavi'
+import {TreeRow} from '../src/components/TreeRow'
 import styles from '../styles/Home.module.css'
-import Tome from './Tome'
+import Tome from '../src/tome/Tome'
 
 const Home: NextPage = () => {
 	const [tomes, setTome] = useState([

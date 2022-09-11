@@ -1,6 +1,6 @@
 import {Group, Stack} from '@mantine/core'
 import {Reorder} from 'framer-motion'
-import {TomeBlockData} from '../../pages/tome-types'
+import {TomeBlockData} from './tome-types'
 import {TomeBlock} from './TomeBlock'
 
 type TomeBarProps = {

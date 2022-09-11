@@ -1,5 +1,5 @@
 import {ActionIcon, Box, Button, Group, Menu} from '@mantine/core'
-import {TomeBlockData, TomeBlockType} from '../../pages/tome-types'
+import {TomeBlockData, TomeBlockType} from './tome-types'
 import {DropResult} from 'react-beautiful-dnd'
 import {Reorder} from 'framer-motion'
 import {TomeBlock} from './TomeBlock'
