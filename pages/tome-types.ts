@@ -1,4 +1,4 @@
-import {TreeIconType} from './tome-components/TreeIcon'
+import {TreeIconType} from '../components/TreeIcon'
 
 export enum TomeBlockType {
 	Search = 'search',

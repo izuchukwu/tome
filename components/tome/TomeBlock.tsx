@@ -10,8 +10,8 @@ import {
 import {MagnifyingGlassIcon, PlusIcon} from '@radix-ui/react-icons'
 import {Reorder} from 'framer-motion'
 import _ from 'lodash'
-import {TomeBlockData, TomeBlockType} from '../tome-types'
-import {TreeIcon} from './TreeIcon'
+import {TomeBlockData, TomeBlockType} from '../../pages/tome-types'
+import {TreeIcon} from '../TreeIcon'
 
 type TomeBlock = {block: TomeBlockData}
 
