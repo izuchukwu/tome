@@ -58,14 +58,19 @@ const Tome = ({tomeID}: TomeProps) => {
 		}
 	])
 	const [pages] = useState<TomePage[]>()
+
+	// This is the starting content, and we update with changes from EP. It does not update with changes users make. Changes here deploy to the editor.
 	const [content, setContent] = useState('<h1>Hello</h1>')
+
+	// This is the most recent content from the editor (what the user is writing)
+	const [latestContent, setLatestContent] = useState(content)
 
 	const {completion, duration, error, isLoading, setVariables} =
 		usePrompt('tome')
 
 	const onWrite = (prompt: string) => {
 		setVariables({
-			content,
+			latestContent,
 			prompt
 		})
 	}
@@ -90,7 +95,7 @@ const Tome = ({tomeID}: TomeProps) => {
 			>
 				<Tiptap
 					content={content}
-					onUpdate={setContent}
+					onUpdate={setLatestContent}
 					style={{width: '100%', height: '100%'}}
 				/>
 			</Group>
