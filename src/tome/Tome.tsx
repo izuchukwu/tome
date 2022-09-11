@@ -70,13 +70,17 @@ const Tome = ({tomeID}: TomeProps) => {
 
 	const onWrite = (prompt: string) => {
 		setVariables({
-			latestContent,
+			content: latestContent,
 			prompt
 		})
 	}
 
 	useEffect(() => {
-		if (completion) setContent(decode(completion))
+		if (completion) {
+			const decodedCompletion = decode(completion)
+			setContent(decodedCompletion)
+			setLatestContent(decodedCompletion)
+		}
 	}, [completion])
 
 	return (
