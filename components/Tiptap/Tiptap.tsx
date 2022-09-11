@@ -3,14 +3,15 @@ import StarterKit from '@tiptap/starter-kit'
 import Highlight from '@tiptap/extension-highlight'
 import Link from '@tiptap/extension-link'
 import Underline from '@tiptap/extension-underline'
-import {useEffect} from 'react'
+import React, {useEffect} from 'react'
 
 type TipTapProps = {
 	content: string
 	onUpdate?: (html: string) => void
+	style?: React.CSSProperties
 }
 
-const Tiptap = ({content, onUpdate}: TipTapProps) => {
+const Tiptap = ({content, onUpdate, style}: TipTapProps) => {
 	const editor = useEditor({
 		extensions: [StarterKit, Highlight, Link, Underline],
 		content: content,
@@ -25,7 +26,7 @@ const Tiptap = ({content, onUpdate}: TipTapProps) => {
 	}, [content, editor])
 
 	return (
-		<div className="TipTap">
+		<div className="TipTap" style={style}>
 			{editor && (
 				<BubbleMenu editor={editor} tippyOptions={{duration: 100}}>
 					<button

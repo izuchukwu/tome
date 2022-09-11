@@ -10,13 +10,24 @@ export const TomePrompt = ({isLoading, onWrite}: TomePromptProps) => {
 	const [prompt, setPrompt] = useState('')
 
 	return (
-		<Paper radius="md" withBorder sx={{width: '100%', height: '100%'}}>
+		<Paper
+			radius="md"
+			withBorder
+			sx={{
+				width: '100%',
+				height: '100%',
+				borderTopLeftRadius: 0,
+				borderTopRightRadius: 0
+			}}
+		>
 			<Group sx={{width: '100%', height: '100%'}} pr={30} align="start">
 				<Textarea
 					placeholder="What do you need?"
 					variant="unstyled"
 					autosize={false}
-					sx={{flexGrow: 1}}
+					sx={{
+						flexGrow: 1
+					}}
 					styles={(theme) => ({
 						wrapper: {height: '100%'},
 						input: {height: '100%', fontSize: 20},

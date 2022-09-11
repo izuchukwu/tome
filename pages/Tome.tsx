@@ -75,7 +75,7 @@ const Tome = ({tomeID}: TomeProps) => {
 	}, [completion])
 
 	return (
-		<Stack align="center">
+		<Stack align="center" sx={{height: '100%'}}>
 			<Stack sx={{maxWidth: 1450, width: '100%'}}>
 				<TomeNav
 					blocks={navBlocks}
@@ -83,18 +83,21 @@ const Tome = ({tomeID}: TomeProps) => {
 					onEditBlocks={setNavBlocks}
 				/>
 			</Stack>
-			<Group align="top" p={20} sx={{width: 700}}>
-				<Tiptap content={content} onUpdate={setContent} />
+			<Group
+				align="top"
+				p={20}
+				sx={{width: 700, flexGrow: 1, overflowY: 'scroll'}}
+			>
+				<Tiptap
+					content={content}
+					onUpdate={setContent}
+					style={{width: '100%', height: '100%'}}
+				/>
 			</Group>
 			<Box
 				sx={{
-					position: 'absolute',
-					marginBottom: 30,
-					marginLeft: 30,
-					left: 0,
-					bottom: 0,
-					height: 300,
-					width: 'calc(100% - 60px)'
+					height: 150,
+					width: '100%'
 				}}
 			>
 				<TomePrompt isLoading={isLoading} onWrite={onWrite} />

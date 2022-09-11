@@ -40,11 +40,7 @@ const Home: NextPage = () => {
 						size="xs"
 					/>
 				</Group>
-				<Paper
-					sx={{flexGrow: 1, height: '100%'}}
-					radius="md"
-					withBorder
-				>
+				<Paper sx={{flexGrow: 1, height: 1}} radius="md" withBorder>
 					<Tome tomeID="warp" />
 				</Paper>
 			</Stack>
