@@ -1,7 +1,7 @@
 import {Box, Group, Stack, Tabs} from '@mantine/core'
 import {useEffect, useState} from 'react'
 import {usePrompt} from '../components/everyprompt'
-import {Tiptap} from '../components/tiptap/Tiptap'
+import {Tiptap} from '../components/x/Tiptap'
 import {TomeBar} from '../components/tome/TomeBar'
 import {TomeNav} from '../components/tome/TomeNav'
 import {TomePrompt} from '../components/tome/TomePrompt'
