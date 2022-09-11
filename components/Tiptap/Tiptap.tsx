@@ -11,7 +11,7 @@ type TipTapProps = {
 	style?: React.CSSProperties
 }
 
-const Tiptap = ({content, onUpdate, style}: TipTapProps) => {
+export const Tiptap = ({content, onUpdate, style}: TipTapProps) => {
 	const editor = useEditor({
 		extensions: [StarterKit, Highlight, Link, Underline],
 		content: content,
@@ -75,5 +75,3 @@ const Tiptap = ({content, onUpdate, style}: TipTapProps) => {
 		</div>
 	)
 }
-
-export default Tiptap
