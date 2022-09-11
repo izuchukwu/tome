@@ -1,5 +1,5 @@
 import Tree, {RenderItemParams} from '@atlaskit/tree'
-import {Group, Paper, Select, Stack, Text} from '@mantine/core'
+import {Box, Group, Paper, Select, Stack, Text} from '@mantine/core'
 import {FileIcon} from '@radix-ui/react-icons'
 import type {NextPage} from 'next'
 import Head from 'next/head'
@@ -40,9 +40,9 @@ const Home: NextPage = () => {
 						size="xs"
 					/>
 				</Group>
-				<Paper sx={{flexGrow: 1, height: 1}} radius="md" withBorder>
+				<Box sx={{flexGrow: 1, height: 1}}>
 					<Tome tomeID="warp" />
-				</Paper>
+				</Box>
 			</Stack>
 		</div>
 	)

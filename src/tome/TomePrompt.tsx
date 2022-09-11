@@ -15,9 +15,7 @@ export const TomePrompt = ({isLoading, onWrite}: TomePromptProps) => {
 			withBorder
 			sx={{
 				width: '100%',
-				height: '100%',
-				borderTopLeftRadius: 0,
-				borderTopRightRadius: 0
+				height: '100%'
 			}}
 		>
 			<Group sx={{width: '100%', height: '100%'}} pr={30} align="start">

@@ -1,4 +1,4 @@
-import {Box, Group, Stack, Tabs} from '@mantine/core'
+import {Box, Group, Paper, Stack, Tabs} from '@mantine/core'
 import {useEffect, useState} from 'react'
 import {usePrompt} from '../hooks/everyprompt'
 import {Tiptap} from '../tiptap/Tiptap'
@@ -81,24 +81,32 @@ const Tome = ({tomeID}: TomeProps) => {
 
 	return (
 		<Stack align="center" sx={{height: '100%'}}>
-			<Stack sx={{maxWidth: 1450, width: '100%'}}>
-				<TomeNav
-					blocks={navBlocks}
-					settings={{showSeparatorOnScrollOnly: true}}
-					onEditBlocks={setNavBlocks}
-				/>
-			</Stack>
-			<Group
-				align="top"
-				p={20}
-				sx={{width: 700, flexGrow: 1, overflowY: 'scroll'}}
+			<Paper
+				radius="md"
+				withBorder
+				sx={{height: 1, flexGrow: 1, width: '100%'}}
 			>
-				<Tiptap
-					content={content}
-					onUpdate={setLatestContent}
-					style={{width: '100%', height: '100%'}}
-				/>
-			</Group>
+				<Stack align="center" sx={{height: '100%'}}>
+					<Stack sx={{maxWidth: 1450, width: '100%'}}>
+						<TomeNav
+							blocks={navBlocks}
+							settings={{showSeparatorOnScrollOnly: true}}
+							onEditBlocks={setNavBlocks}
+						/>
+					</Stack>
+					<Group
+						align="top"
+						p={20}
+						sx={{width: 700, flexGrow: 1, overflowY: 'scroll'}}
+					>
+						<Tiptap
+							content={content}
+							onUpdate={setLatestContent}
+							style={{width: '100%', height: '100%'}}
+						/>
+					</Group>
+				</Stack>
+			</Paper>
 			<Box
 				sx={{
 					height: 150,
