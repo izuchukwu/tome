@@ -9,9 +9,22 @@ type TipTapProps = {
 	content: string
 	onUpdate?: (html: string) => void
 	style?: React.CSSProperties
+
+	// To undo or redo, increment these
+	undoFlag?: number
+	redoFlag?: number
+
+	onUndoableChange?: (undoable: boolean) => void
+	onRedoableChange?: (undoable: boolean) => void
 }
 
-export const Tiptap = ({content, onUpdate, style}: TipTapProps) => {
+export const Tiptap = ({
+	content,
+	onUpdate,
+	style,
+	undoFlag,
+	redoFlag
+}: TipTapProps) => {
 	const editor = useEditor({
 		extensions: [StarterKit, Highlight, Link, Underline],
 		content: content,
@@ -21,9 +34,20 @@ export const Tiptap = ({content, onUpdate, style}: TipTapProps) => {
 		}
 	})
 
+	// Update content
 	useEffect(() => {
 		editor?.commands.setContent(content)
 	}, [content, editor])
+
+	// Undo
+	useEffect(() => {
+		editor?.commands.undo()
+	}, [undoFlag, editor])
+
+	// Redo
+	useEffect(() => {
+		editor?.commands.redo()
+	}, [redoFlag, editor])
 
 	return (
 		<div className="TipTap" style={style}>

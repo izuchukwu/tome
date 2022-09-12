@@ -1,6 +1,6 @@
 import Tree, {RenderItemParams} from '@atlaskit/tree'
-import {Box, Group, Paper, Select, Stack, Text} from '@mantine/core'
-import {FileIcon} from '@radix-ui/react-icons'
+import {ActionIcon, Box, Group, Paper, Select, Stack, Text} from '@mantine/core'
+import {FileIcon, ReloadIcon} from '@radix-ui/react-icons'
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import {useState} from 'react'
@@ -17,6 +17,8 @@ const Home: NextPage = () => {
 		'Chorus Docs',
 		'+ New Tome'
 	])
+	const [undoFlag, setUndoFlag] = useState(0)
+	const [redoFlag, setRedoFlag] = useState(0)
 
 	return (
 		<div className={styles.container}>
@@ -30,18 +32,36 @@ const Home: NextPage = () => {
 			</Head>
 
 			<Stack p={15} sx={{height: '100vh'}}>
-				<Group>
-					<Text sx={{fontWeight: 600}}>🪄 Tome</Text>
-					<Select
-						data={tomes}
-						value={'Warp Docs'}
-						variant="filled"
-						radius="md"
-						size="xs"
-					/>
+				<Group position="apart">
+					<Group>
+						<Text sx={{fontWeight: 600}}>🪄 Tome</Text>
+						<Select
+							data={tomes}
+							value={'Warp Docs'}
+							variant="filled"
+							radius="md"
+							size="xs"
+						/>
+					</Group>
+					<Group>
+						<ActionIcon onClick={() => setUndoFlag((f) => f + 1)}>
+							<Box sx={{transform: 'scale(-1, 1)'}}>
+								<ReloadIcon />
+							</Box>
+						</ActionIcon>
+						<ActionIcon onClick={() => setRedoFlag((f) => f + 1)}>
+							<Box>
+								<ReloadIcon />
+							</Box>
+						</ActionIcon>
+					</Group>
 				</Group>
 				<Box sx={{flexGrow: 1, height: 1}}>
-					<Tome tomeID="warp" />
+					<Tome
+						tomeID="warp"
+						undoFlag={undoFlag}
+						redoFlag={redoFlag}
+					/>
 				</Box>
 			</Stack>
 		</div>

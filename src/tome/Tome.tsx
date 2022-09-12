@@ -10,9 +10,11 @@ import {decode} from 'html-entities'
 
 interface TomeProps {
 	tomeID: string
+	undoFlag?: number
+	redoFlag?: number
 }
 
-const Tome = ({tomeID}: TomeProps) => {
+const Tome = ({tomeID, undoFlag, redoFlag}: TomeProps) => {
 	const [navBlocks, setNavBlocks] = useState<TomeBlockData[]>([
 		{type: TomeBlockType.Search, id: 'a'},
 		{type: TomeBlockType.Space, settings: {width: 'grow'}, id: 'b'},
@@ -107,6 +109,8 @@ const Tome = ({tomeID}: TomeProps) => {
 							content={content}
 							onUpdate={setLatestContent}
 							style={{width: '100%', height: '100%'}}
+							undoFlag={undoFlag}
+							redoFlag={redoFlag}
 						/>
 					</Group>
 				</Stack>
